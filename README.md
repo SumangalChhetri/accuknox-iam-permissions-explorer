@@ -2,6 +2,18 @@
 
 Product design and security UX assignment for AccuKnox.
 
+**Candidate:** Sumangal Chhetri
+
+## Figma Prototype
+
+[View the AccuKnox IAM Permissions Explorer Prototype](https://www.figma.com/design/92BhmhVLvdUQimallaNEst/AccuKnox-%E2%80%93-IAM-Permissions-Explorer?node-id=0-1&t=BcwbFkzxOPhZRWfM-1)
+
+## Assignment Document
+
+[View the complete assignment PDF](./AccuKnox.pdf)
+
+---
+
 ## Overview
 
 IAM Permissions Explorer is a cloud security product concept designed to help Cloud Security Engineers identify, investigate, and safely remediate excessive and unused IAM permissions across cloud accounts.
@@ -10,50 +22,102 @@ IAM Permissions Explorer is a cloud security product concept designed to help Cl
 
 **Discover → Investigate → Recommend → Remediate → Audit**
 
-## Prototype
+---
 
-**Figma Prototype:**
-[AccuKnox IAM Permissions Explorer](PASTE_YOUR_FIGMA_LINK_HERE)
+## User Persona
 
-The prototype contains three screens:
+### Cloud Security Engineer
 
-1. **IAM Security Overview** — Identify and prioritize risky IAM findings.
-2. **Permission Investigation** — Understand granted permissions versus actual usage.
-3. **Remediation Plan** — Review least-privilege changes and safely approve remediation.
+The primary user monitors IAM security across multiple cloud accounts and needs to prioritize risky findings, investigate permission usage, and safely remediate excessive access.
 
-## Assignment Document
+Key pain points include:
 
-[View the complete assignment PDF](./AccuKnox_IAM_Permissions_Explorer.pdf)
+- Large numbers of IAM security findings.
+- Difficulty identifying which permissions are actually required.
+- Risk of breaking workloads when removing permissions.
+- Lack of actionable context around security findings.
 
-## Screenshots
+---
+
+## Prototype Screens
 
 ### 1. IAM Security Overview
 
-![IAM Security Overview](./screenshots/screen-1-overview.png)
+The dashboard helps security engineers identify and prioritize high-risk IAM findings using severity, account, finding type, and last-used activity.
+
+![IAM Security Overview](./screen-1-overview.png)
 
 ### 2. Permission Investigation
 
-![Permission Investigation](./screenshots/screen-2-investigation.png)
+The investigation view compares granted permissions with observed usage, helping engineers understand which permissions are required and which may be excessive or unused.
+
+![Permission Investigation](./screen-2-investigation.png)
 
 ### 3. Remediation Plan
 
-![Remediation Plan](./screenshots/screen-3-remediation.png)
+The remediation view provides a before/after policy comparison, impact assessment, least-privilege recommendation, approval workflow, and audit trail.
+
+![Remediation Plan](./screen-3-remediation.png)
+
+---
 
 ## Key Design Decisions
 
-* Risk-based prioritization helps security engineers focus on high-impact findings.
-* Permission usage analysis provides evidence before access is removed.
-* Least-privilege recommendations turn findings into actionable remediation.
-* Before/after policy comparison reduces ambiguity.
-* Approval and audit workflows make remediation safer for production environments.
+- **Risk-based prioritization:** Focus attention on high-impact IAM findings first.
+- **Usage-based investigation:** Provide evidence before recommending permission removal.
+- **Least-privilege recommendations:** Convert security findings into actionable remediation.
+- **Safe remediation:** Use policy comparison and approval before production changes.
+- **Auditability:** Maintain traceability for security-sensitive changes.
 
-## Bonus Development Considerations
+---
 
-* AWS IAM and CloudTrail integration
-* Permission analysis and risk scoring
-* Least-privilege policy generation
-* Policy simulation and dependency checks
-* Approval, rollback, and audit capabilities
-* Testing against production-like workloads
+## Feature Prioritization
 
-**Candidate:** Sumangal Chhetri
+### Must Have
+
+1. **Risk-based IAM Dashboard**
+2. **Permission Usage Investigation**
+3. **Least-Privilege Recommendations**
+
+These form the minimum workflow required to identify a problem, understand it, and determine an appropriate remediation.
+
+### Next
+
+4. **Safe Remediation & Approval**
+5. **Audit Trail**
+
+These capabilities make the workflow safer and more suitable for enterprise environments.
+
+---
+
+## Success Metrics
+
+- Reduction in excessive and unused permissions.
+- Median time from finding discovery to remediation decision.
+- Percentage of recommended remediations accepted.
+- Percentage of high-risk findings resolved.
+- Percentage of remediation changes completed without workload-related incidents.
+
+---
+
+## Bonus — Development Action Items
+
+- Integrate AWS IAM and CloudTrail initially, with future multi-cloud support.
+- Build permission analysis and risk-scoring services.
+- Generate and validate least-privilege policy recommendations.
+- Add policy simulation, approval, rollback, and audit capabilities.
+- Test recommendations against representative production-like workloads.
+
+---
+
+## Technologies / Concepts Considered
+
+- AWS IAM
+- AWS CloudTrail
+- Cloud Security
+- Identity and Access Management
+- Least Privilege
+- Kubernetes / Cloud Workloads
+- Risk-Based Security
+- Policy Analysis
+- Security Auditability
